@@ -2,14 +2,14 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.util.Range;
+//import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="9328: TeleOp", group="9328")
 public class TeleOp9328 extends OpMode {
     HardwareMap9328 hwMap       = new HardwareMap9328();
     double leftStick1, rightStick1, leftStick2, rightStick2;
 
-    
+
     //These values will need to be changed later on!!!
     int clawOpenPosition = 0;
     int clawClosedPosition = 45;

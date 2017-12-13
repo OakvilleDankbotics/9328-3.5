@@ -9,10 +9,16 @@ public class TeleOp9328 extends OpMode {
     HardwareMap9328 hwMap       = new HardwareMap9328();
     double leftStick1, rightStick1, leftStick2, rightStick2;
 
+    
+    //These values will need to be changed later on!!!
+    int clawOpenPosition = 0;
+    int clawClosedPosition = 45;
+
+
     @Override
     public void init() {
         //Runs once after pressing init
-        hwMap.claw.setTargetPosition(0);
+        hwMap.claw.setTargetPosition(clawOpenPosition);
         /**
          * This is here to do 2 things
          * first make sure the bot doesn't dab when initialized like it did last time
@@ -55,10 +61,10 @@ public class TeleOp9328 extends OpMode {
         if (rightStick2 > 0.2 || rightStick2 < -0.2) {
             hwMap.clawWinch.setPower(rightStick2);
         } else if (gamepad2.right_stick_button && clawState == false) {
-            hwMap.claw.setTargetPosition(45);
+            hwMap.claw.setTargetPosition(clawClosedPosition);
             clawState = true;
         } else if (gamepad2.right_stick_button && clawState == true) {
-            hwMap.claw.setTargetPosition(0);
+            hwMap.claw.setTargetPosition(clawOpenPosition);
             clawState = false;
         } else {
             hwMap.clawWinch.setPower(0);

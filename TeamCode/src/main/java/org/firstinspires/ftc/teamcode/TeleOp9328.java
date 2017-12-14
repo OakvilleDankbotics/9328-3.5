@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-//import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="9328: TeleOp", group="9328")
 public class TeleOp9328 extends OpMode {
@@ -25,21 +24,6 @@ public class TeleOp9328 extends OpMode {
          * second is to make sure that the clawState boolean is correct
          **/
     }
-
-    //Unused Code
-    /**
-
-    @Override
-    public void init_loop() {
-        //Runs repeatedly after pressing init
-    }
-
-    @Override
-    public void start() {
-        //Runs once after pressing start
-    }
-
-    **/
 
     @Override
     public void loop() {

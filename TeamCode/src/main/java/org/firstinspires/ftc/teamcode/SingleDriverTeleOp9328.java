@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+//FOR AN EXPLANATION PLEASE CHECK "TeleOp9328.java"
+
 @TeleOp(name="9328: Single Driver", group="9328")
 public class SingleDriverTeleOp9328 extends OpMode {
     HardwareMap9328 hwMap = new HardwareMap9328();

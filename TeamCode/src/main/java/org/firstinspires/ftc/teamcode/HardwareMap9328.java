@@ -10,6 +10,8 @@ public class HardwareMap9328 {
     public DcMotor rightTread;
     public DcMotor clawWinch;
     public DcMotor claw;
+    public int clawOpenPosition = 0;
+    public int clawClosedPosition = 45;
 
     HardwareMap hwMapv2;
     private ElapsedTime period = new ElapsedTime();

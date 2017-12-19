@@ -10,8 +10,6 @@ public class HardwareMap9328 {
     public DcMotor rightTread;
     public DcMotor clawWinch;
     public DcMotor claw;
-    public int clawOpenPosition = 0;
-    public int clawClosedPosition = 45;
 
     HardwareMap hwMapv2;
     private ElapsedTime period = new ElapsedTime();
@@ -24,7 +22,7 @@ public class HardwareMap9328 {
 
         leftTread   = hwMapv2.get(DcMotor.class, "LeftTread");
         rightTread  = hwMapv2.get(DcMotor.class, "RightTread");
-        leftTread.setDirection(DcMotor.Direction.REVERSE);
+        rightTread.setDirection(DcMotor.Direction.REVERSE);
         clawWinch   = hwMapv2.get(DcMotor.class, "Winch");
         claw        = hwMapv2.get(DcMotor.class, "Claw");
 

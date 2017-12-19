@@ -1,22 +1,19 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name="9328: TeleOp", group="9328")
+@Disabled
 public class TeleOp9328 extends OpMode {
     HardwareMap9328 hwMap = new HardwareMap9328();
     double leftStick1, rightStick1, leftStick2, rightStick2;
 
-
-    //These values will need to be changed later on (Found in HardwareMap)!!!
-    int clawOpenPosition = new HardwareMap9328().clawOpenPosition;
-    int clawClosedPosition = new HardwareMap9328().clawClosedPosition;
-
     @Override
     public void init() {
         //Runs once after pressing init
-        hwMap.claw.setTargetPosition(clawOpenPosition);
+        hwMap.claw.setTargetPosition(45);
 
         /**
          * This is here to do 2 things
@@ -51,10 +48,10 @@ public class TeleOp9328 extends OpMode {
         if (rightStick2 > 0.2 || rightStick2 < -0.2) {
             hwMap.clawWinch.setPower(rightStick2);
         } else if (gamepad2.right_stick_button & clawState == false) {
-            hwMap.claw.setTargetPosition(clawClosedPosition);
+            hwMap.claw.setTargetPosition(0);
             clawState = true;
         } else if (gamepad2.right_stick_button & clawState == true) {
-            hwMap.claw.setTargetPosition(clawOpenPosition);
+            //hwMap.claw.setTargetPosition(45);
             clawState = false;
         } else {
             hwMap.clawWinch.setPower(0);

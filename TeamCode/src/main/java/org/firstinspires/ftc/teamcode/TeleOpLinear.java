@@ -8,7 +8,7 @@ public class TeleOpLinear extends LinearOpMode {
     private HardwareMap9328 hwMap = new HardwareMap9328();
     private int clawOpenPosition = new HardwareMap9328().clawOpenPosition;
     private int clawClosedPosition = new HardwareMap9328().clawClosedPosition;
-    private double leftStick1, rightStick1, rightStick2;
+    private double leftStick1 = gamepad1.left_stick_y, rightStick1 = gamepad1.right_stick_y, rightStick2 = gamepad2.right_stick_y;
     private boolean clawState = false;
 
     @Override
@@ -18,10 +18,6 @@ public class TeleOpLinear extends LinearOpMode {
 
         hwMap.claw.setTargetPosition(45);
         while (opModeIsActive()) {
-            leftStick1   = gamepad1.left_stick_y;
-            rightStick1  = gamepad1.right_stick_y;
-            rightStick2  = gamepad2.right_stick_y;
-
             hwMap.leftTread.setPower(leftStick1);
             hwMap.rightTread.setPower(rightStick1);
 

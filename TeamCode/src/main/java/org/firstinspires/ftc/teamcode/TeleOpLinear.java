@@ -5,11 +5,11 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name="9328: TeleOp Linear", group="9328")
 public class TeleOpLinear extends LinearOpMode {
-    HardwareMap9328 hwMap = new HardwareMap9328();
-    int clawOpenPosition = new HardwareMap9328().clawOpenPosition;
-    int clawClosedPosition = new HardwareMap9328().clawClosedPosition;
-    double leftStick1, rightStick1, leftStick2, rightStick2;
-    boolean clawState = false;
+    private HardwareMap9328 hwMap = new HardwareMap9328();
+    private int clawOpenPosition = new HardwareMap9328().clawOpenPosition;
+    private int clawClosedPosition = new HardwareMap9328().clawClosedPosition;
+    private double leftStick1, rightStick1, rightStick2;
+    private boolean clawState = false;
 
     @Override
     public void runOpMode() {
@@ -20,7 +20,6 @@ public class TeleOpLinear extends LinearOpMode {
         while (opModeIsActive()) {
             leftStick1   = gamepad1.left_stick_y;
             rightStick1  = gamepad1.right_stick_y;
-            leftStick2   = gamepad2.left_stick_y;
             rightStick2  = gamepad2.right_stick_y;
 
             hwMap.leftTread.setPower(leftStick1);

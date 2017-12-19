@@ -5,11 +5,11 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name="9328: Linear Single Driver", group="9328")
 public class SingleDriverLinear extends LinearOpMode {
-    HardwareMap9328 hwMap = new HardwareMap9328();
-    int clawOpenPosition = new HardwareMap9328().clawOpenPosition;
-    int clawClosedPosition = new HardwareMap9328().clawClosedPosition;
-    double leftStick, rightStick;
-    boolean clawState = false;
+    private HardwareMap9328 hwMap = new HardwareMap9328();
+    private int clawOpenPosition = new HardwareMap9328().clawOpenPosition;
+    private int clawClosedPosition = new HardwareMap9328().clawClosedPosition;
+    private double leftStick, rightStick;
+    private boolean clawState = false;
     @Override
     public void runOpMode() {
 

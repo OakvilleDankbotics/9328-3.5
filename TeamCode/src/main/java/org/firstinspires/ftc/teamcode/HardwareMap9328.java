@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -10,6 +9,8 @@ public class HardwareMap9328 {
     public DcMotor rightTread;
     public DcMotor clawWinch;
     public DcMotor claw;
+    public int clawOpenPosition = 0;
+    public int clawClosedPosition = 45;
 
     HardwareMap hwMapv2;
     private ElapsedTime period = new ElapsedTime();

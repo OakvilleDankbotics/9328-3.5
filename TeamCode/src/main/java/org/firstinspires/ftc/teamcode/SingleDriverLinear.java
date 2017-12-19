@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name="9328: Linear Single Driver", group="9328")
 public class SingleDriverLinear extends LinearOpMode {
     HardwareMap9328 hwMap = new HardwareMap9328();
+    int clawOpenPosition = new HardwareMap9328().clawOpenPosition;
+    int clawClosedPosition = new HardwareMap9328().clawClosedPosition;
     double leftStick, rightStick;
     boolean clawState = false;
     @Override
@@ -27,12 +29,12 @@ public class SingleDriverLinear extends LinearOpMode {
                 hwMap.clawWinch.setPower(0.75);
             } else if (gamepad1.dpad_down) {
                 hwMap.clawWinch.setPower(-0.75);
-            } else if (gamepad1.a & clawState) {
-                hwMap.claw.setTargetPosition(45);
-                clawState = false;
             } else if (gamepad1.a & !clawState) {
-                hwMap.claw.setTargetPosition(0);
+                hwMap.claw.setTargetPosition(clawOpenPosition);
                 clawState = true;
+            } else if (gamepad1.a & clawState) {
+                hwMap.claw.setTargetPosition(clawClosedPosition);
+                clawState = false;
             } else {
                 hwMap.clawWinch.setPower(0);
             }

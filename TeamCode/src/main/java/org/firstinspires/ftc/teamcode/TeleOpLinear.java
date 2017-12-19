@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name="9328: TeleOp Linear", group="9328")
 public class TeleOpLinear extends LinearOpMode {
     HardwareMap9328 hwMap = new HardwareMap9328();
+    int clawOpenPosition = new HardwareMap9328().clawOpenPosition;
+    int clawClosedPosition = new HardwareMap9328().clawClosedPosition;
     double leftStick1, rightStick1, leftStick2, rightStick2;
     boolean clawState = false;
 
@@ -27,10 +29,10 @@ public class TeleOpLinear extends LinearOpMode {
             if (rightStick2 > 0.2 || rightStick2 < -0.2) {
                 hwMap.clawWinch.setPower(rightStick2);
             } else if (gamepad2.right_stick_button & !clawState) {
-                hwMap.claw.setTargetPosition(0);
+                hwMap.claw.setTargetPosition(clawOpenPosition);
                 clawState = true;
             } else if (gamepad2.right_stick_button & clawState) {
-                hwMap.claw.setTargetPosition(45);
+                hwMap.claw.setTargetPosition(clawClosedPosition);
                 clawState = false;
             } else {
                 hwMap.clawWinch.setPower(0);

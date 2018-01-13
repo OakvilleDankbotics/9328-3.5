@@ -2,8 +2,6 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorController;
-import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp(name="Single Driver", group="Default")
@@ -13,6 +11,7 @@ public class SingleDriverOperation extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
+        robot.claw.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         waitForStart();
         while (opModeIsActive()) {
             robot.rightDrive.setPower(gamepad1.right_stick_y);
@@ -26,17 +25,11 @@ public class SingleDriverOperation extends LinearOpMode {
             }
 
             if (gamepad1.a) {
-                robot.claw.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-                robot.claw.setTargetPosition(0);
-                robot.claw.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                while(robot.claw.isBusy()){}
-                robot.claw.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+                robot.claw.setPower(-0.15);
             } else if (gamepad1.b) {
-                robot.claw.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-                robot.claw.setTargetPosition(45);
-                robot.claw.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                while(robot.claw.isBusy()){}
-                robot.claw.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+                robot.claw.setPower(0.15);
+            } else {
+                robot.claw.setPower(0);
             }
         }
     }

@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.teamcode;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 @TeleOp(name="9328: TeleOp Linear", group="9328")
+@Disabled
 public class TeleOpLinear extends LinearOpMode {
     private HardwareMap9328 hwMap = new HardwareMap9328();
     private double leftStick1 = gamepad1.left_stick_y, rightStick1 = gamepad1.right_stick_y, rightStick2 = gamepad2.right_stick_y;
